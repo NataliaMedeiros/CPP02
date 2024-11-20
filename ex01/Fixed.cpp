@@ -6,15 +6,28 @@
 /*   By: nmedeiro <nmedeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:38:19 by nmedeiro          #+#    #+#             */
-/*   Updated: 2024/11/20 12:28:09 by nmedeiro         ###   ########.fr       */
+/*   Updated: 2024/11/20 13:15:20 by nmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed(): number(0)
 {
-    this->number = 0;
+    // this->number = 0;
+    std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int number)
+{
+    this->number = number << fNumber;
+    std::cout << "Constructor with const int as parameter called" << std::endl;
+}
+
+Fixed::Fixed(const float  floatNumber)
+{
+    // this->number = roundf(floatNumber);
+    this->number = static_cast<int>(floatNumber * (1 << fNumber));
     std::cout << "Default constructor called" << std::endl;
 }
 
