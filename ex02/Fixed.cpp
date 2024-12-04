@@ -6,7 +6,7 @@
 /*   By: nmedeiro <nmedeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:38:19 by nmedeiro          #+#    #+#             */
-/*   Updated: 2024/12/04 16:07:24 by nmedeiro         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:15:49 by nmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,18 +123,18 @@ bool Fixed::operator!=(const Fixed& fixed)
 
 Fixed Fixed::operator+(const Fixed& fixed)
 {
-    Fixed   result;
+    // Fixed   result;
 
-    result.setRawBits(this->number + fixed.getRawBits());
-    return (result);
+    // result.setRawBits(this->number + fixed.getRawBits());
+    return (this->toFloat() + fixed.toFloat());
 }
 
 Fixed Fixed::operator-(const Fixed& fixed)
 {
-    Fixed   result;
+    // Fixed   result;
 
-    result.setRawBits(this->number - fixed.getRawBits());
-    return (result);
+    // result.setRawBits(this->number - fixed.getRawBits());
+    return (this->toFloat() - fixed.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed& fixed)
@@ -147,10 +147,10 @@ Fixed Fixed::operator*(const Fixed& fixed)
 
 Fixed Fixed::operator/(const Fixed& fixed)
 {
-    Fixed   result;
+    // Fixed   result;
 
-    result.setRawBits(this->number / fixed.getRawBits());
-    return (result);
+    // result.setRawBits(this->number / fixed.getRawBits());
+    return (this->toFloat() / fixed.toFloat());
 }
 
 Fixed Fixed::operator++()
