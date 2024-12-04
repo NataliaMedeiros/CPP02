@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Fixed.hpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: natalia <natalia@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/11/13 16:38:37 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2024/12/03 19:10:53 by natalia       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmedeiro <nmedeiro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/13 16:38:37 by nmedeiro          #+#    #+#             */
+/*   Updated: 2024/12/04 15:56:58 by nmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class   Fixed
 
         Fixed operator+(const Fixed& fixed);
         Fixed operator-(const Fixed& fixed);
-        Fixed operator*(const Fixed& fixed);
+        Fixed operator*(const Fixed& fixed1);
         Fixed operator/(const Fixed& fixed);
 
         Fixed operator++();

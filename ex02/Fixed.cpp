@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Fixed.cpp                                          :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: natalia <natalia@student.42.fr>              +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/11/13 16:38:19 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2024/12/03 19:12:41 by natalia       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nmedeiro <nmedeiro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/13 16:38:19 by nmedeiro          #+#    #+#             */
+/*   Updated: 2024/12/04 16:07:24 by nmedeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 Fixed::Fixed()
 {
     this->number = 0;
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int number)
 {
     this->number = number << fNumber;
     // this->number = roundf(number * (1 << this->fNumber));
-    std::cout << "Constructor with const int as parameter called" << std::endl;
+    //std::cout << "Constructor with const int as parameter called" << std::endl;
 }
 
 Fixed::Fixed(const float  floatNumber)
 {
     // this->number = roundf(floatNumber * (1 << fNumber));
     this->number = static_cast<int>(floatNumber * (1 << fNumber));
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fixed)
 {
     number = fixed.number;
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& fixed)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    //std::cout << "Copy assignment operator called" << std::endl;
     if (this != &fixed)
         number = fixed.number;
     return (*this);
@@ -48,12 +48,12 @@ Fixed& Fixed::operator=(const Fixed& fixed)
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    //std::cout << "getRawBits member function called" << std::endl;
     return (this->number);
 }
 
@@ -139,10 +139,10 @@ Fixed Fixed::operator-(const Fixed& fixed)
 
 Fixed Fixed::operator*(const Fixed& fixed)
 {
-    Fixed   result;
+    // Fixed   result;
 
-    result.setRawBits(this->number * fixed.getRawBits());
-    return (result);
+    // result.setRawBits(this->number * fixed.getRawBits());
+    return (this->toFloat() * fixed.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed& fixed)
@@ -155,42 +155,54 @@ Fixed Fixed::operator/(const Fixed& fixed)
 
 Fixed Fixed::operator++()
 {
-    this->number += 1;
+    this->number++;
     return (*this);
 }
 
-Fixed Fixed::operator++(int value)
+Fixed Fixed::operator++(int)
 {
-    this->number += value;
-    return (*this);
+    Fixed   tmp = *this;
+    
+    ++this->number;
+    return (tmp);
 }
 
 Fixed Fixed::operator--()
 {
-    this->number -= 1;
+    this->number--;
     return (*this);
 }
 
-Fixed Fixed::operator--(int value)
+Fixed Fixed::operator--(int)
 {
-    this->number -= value;
-    return (*this);
+    Fixed tmp = *this;
+    
+    --this->number;
+    return (tmp);
 }
 
-Fixed Fixed::min(Fixed& nunber1, Fixed& number2)
+Fixed Fixed::min(Fixed& number1, Fixed& number2)
 {
-
+    if (number1.number < number2.number)
+        return(number1);
+    return (number2);
 }
 
-Fixed Fixed::max(Fixed& nunber1, Fixed& number2)
+Fixed Fixed::max(Fixed& number1, Fixed& number2)
 {
-
+    if (number1.number > number2.number)
+        return(number1);
+    return (number2);
 }
-const Fixed Fixed::min(const Fixed& nunber1, const Fixed& number2)
+const Fixed Fixed::min(const Fixed& number1, const Fixed& number2)
 {
-
+    if (number1.number < number2.number)
+        return(number1);
+    return (number2);
 }
-const Fixed Fixed::max(const Fixed& nunber1, const Fixed& number2)
+const Fixed Fixed::max(const Fixed& number1, const Fixed& number2)
 {
-
+    if (number1.number > number2.number)
+        return(number1);
+    return (number2);
 }
