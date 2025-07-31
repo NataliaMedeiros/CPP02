@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nmedeiro <nmedeiro@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 16:38:37 by nmedeiro          #+#    #+#             */
-/*   Updated: 2024/11/20 16:35:14 by nmedeiro         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   Fixed.hpp                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: natalia <natalia@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/11/13 16:38:37 by nmedeiro      #+#    #+#                 */
+/*   Updated: 2025/07/31 16:34:21 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 class   Fixed
 {
     private:
-        int                 number;
-        static const int    fNumber = 8;
-        
+        int                 _value;
+        static const int    _fractionalBits = 8;
+
     public:
         Fixed();//Default constructor
         Fixed(const int intNumber);
