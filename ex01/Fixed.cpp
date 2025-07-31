@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/13 16:38:19 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2025/07/31 16:34:21 by natalia       ########   odam.nl         */
+/*   Updated: 2025/07/31 17:09:44 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ Fixed& Fixed::operator=(const Fixed& fixed)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &fixed)
-    {
         _value = fixed._value;
-    }
     return (*this);
 }
 
@@ -36,15 +34,13 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const int number)
+Fixed::Fixed(const int number) : _value(number << _fractionalBits)
 {
-    this->_value = number << _fractionalBits;
     std::cout << "Constructor with const int as parameter called" << std::endl;
 }
 
-Fixed::Fixed(const float  floatNumber)
+Fixed::Fixed(const float  floatNumber) : _value(roundf(floatNumber * (1 << _fractionalBits)))
 {
-    this->_value = roundf(floatNumber * (1 << _fractionalBits));
     std::cout << "Default constructor called" << std::endl;
 }
 

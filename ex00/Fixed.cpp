@@ -6,7 +6,7 @@
 /*   By: natalia <natalia@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/11/13 16:38:19 by nmedeiro      #+#    #+#                 */
-/*   Updated: 2025/07/31 16:34:08 by natalia       ########   odam.nl         */
+/*   Updated: 2025/07/31 17:08:42 by natalia       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ Fixed& Fixed::operator=(const Fixed &fixed)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &fixed)
-    {
         this->_value = fixed._value;
-    }
     return (*this);
 }
 
