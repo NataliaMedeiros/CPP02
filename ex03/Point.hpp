@@ -3,15 +3,20 @@
 
 #include "Fixed.hpp"
 
-class Point()
+class Point
 {
     private:
-        Fixed const x;
-        Fixed const y;
+        Fixed const _x;
+        Fixed const _y;
     public:
         Point();
         Point(const float x, const float y);
         Point(const Point &point);
+        Point &operator=(const Point &other);
         ~Point();
-}
+
+        Fixed getX() const;
+    Fixed getY() const;
+};
+
 #endif
